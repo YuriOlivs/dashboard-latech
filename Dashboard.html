@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style-dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="top-line">
+        <h1 class="empresa-nome">Nome da empresa</h1>
+        <span>13/04/2023</span>
+    </div>
+    <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="assets/icons/home.svg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="assets/icons/temperatura.svg" alt="" class="temp">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="assets/icons/umidade.svg" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <!-- divisão da nav -->
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="assets/icons/configurações.svg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="assets/icons/ajuda.svg" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="content">
+                <div class="inner-content">
+                    <div class="container">
+                        <canvas id="chart-temp"></canvas>
+                    </div>
+                    <div class="container">
+                        <canvas id="chart-umdd"></canvas>
+                    </div>
+                </div>
+                <div class="inner-content">
+                    <div class="container cards">
+                        <div class="card">
+
+                        </div>
+                        <div class="card">
+
+                        </div>
+                        <div class="card">
+                            
+                        </div>
+                    </div>
+                    <div class="container">
+                        <canvas id="chart-alert"></canvas>
+                    </div>
+                </div>
+            </div>
+        
+    </header>
+</body>
+</html>
+
+<script>
+    const ctxTemp = document.getElementById('chart-temp');
+
+    new Chart(ctxTemp, {
+        type: 'line',
+        data: {
+            labels: ['13h00', '14h00', '15h00', '16h00', '17h00', '18h00'   ],
+            datasets: [{
+                label: 'Temperaturas registradas nas últimas 6 horas',
+                backgroundColor: '#ffa500',
+                borderColor: '#ffa500',
+                data: [1, 1.5, 1.25, 1.5, 1.625, 1.75],
+                borderWidth: 1
+            },
+            ]
+        }
+       
+    });
+
+    const ctxUmdd = document.getElementById('chart-umdd');
+
+    new Chart(ctxUmdd, {
+        type: 'line',
+        data: {
+            labels: ['13h00', '14h00', '15h00', '16h00', '17h00', '18h00',],
+            datasets: [{
+                label: 'Níveis de umidade registrados nas últimas 6 horas',
+                backgroundColor: '#b7d5e5',
+                borderColor: '#b7d5e5',
+                data: [1, 1.5, 1.25, 1.5, 1.625, 1.75],
+                borderWidth: 1
+            },
+            ]
+        }
+        
+    });
+
+    ctxAlert = document.getElementById('chart-alert')
+
+    new Chart(ctxAlert, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
+            datasets: [{
+                label: 'Alertas emitidos por mês nos últimos 4 meses',
+                backgroundColor: '#b7d5e5',
+                borderColor: '#b7d5e5',
+                data: [20, 15, 13, 8],
+                borderWidth: 1
+            },
+        ]
+        }
+    })
+
+    ctxTeste = document.getElementById('chart-teste')
+
+    new Chart(ctxAlert, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
+            datasets: [{
+                label: 'Alertas emitidos por mês nos últimos 4 meses',
+                backgroundColor: '#b7d5e5',
+                borderColor: '#b7d5e5',
+                data: [20, 15, 13, 8],
+                borderWidth: 1
+            },
+        ]
+        }
+    })
+</script>
